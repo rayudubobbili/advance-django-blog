@@ -12,7 +12,8 @@ class Tags(models.Model):
         return self.tag
 
     class Meta:
-        verbose_name = "Tags"
+        verbose_name = "Tag"
+        verbose_name_plural = "Tags"
 
 
 class Comments(models.Model):
@@ -24,7 +25,8 @@ class Comments(models.Model):
         return self.comment
 
     class Meta:
-        verbose_name = "Comments"
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
 
 
 class Views(models.Model):
@@ -34,7 +36,8 @@ class Views(models.Model):
         return self.view
 
     class Meta:
-        verbose_name = "Views"
+        verbose_name = "View"
+        verbose_name_plural = "Views"
 
 
 class Likes(models.Model):
@@ -44,7 +47,8 @@ class Likes(models.Model):
         return self.like
 
     class Meta:
-        verbose_name = "Likes"
+        verbose_name = "Like"
+        verbose_name_plural = "Likes"
 
 
 class Post(models.Model):
