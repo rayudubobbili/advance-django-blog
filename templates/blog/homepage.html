@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Welcome to Homepage</title>
+{% endblock %}
+
+{% block content %}
+<div class="home_image">
+    <h1 class="text-center lg" id="home_brand">Brand Name</h1>
+</div>
+<div class="container-fluid">
+<div class="row">
+{% for post in posts %}
+    <div class="col-md-4 col-xs-2">
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{post.featured_image}}" alt="{{post.titile}}">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.meta}}</p>
+        <a href="{% url 'blog:detailview' post.slug %}" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+

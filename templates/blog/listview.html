@@ -1,6 +1,5 @@
-{% extends 'base.html' %}
 
-{% block head %}
-  <title>Welcome to the blog</title>
-{% endblock %}
+{% for object in objects %}
+    <li><href = "/{{object.slug}}">{{object.title}}</a></li>
+{% endfor %}
 

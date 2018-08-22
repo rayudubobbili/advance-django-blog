@@ -3,6 +3,11 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 
 
+def homepage(request):
+    posts = Post.objects.all()
+    return render(request, 'blog/homepage.html', {'posts':posts})
+
+
 class Post_list_view(ListView):
     model = Post
     template_name = 'blog/listview.html'
@@ -10,4 +15,4 @@ class Post_list_view(ListView):
 
 class Post_detail_view(DetailView):
     model = Post
-    template_name = 'blog/detialview.html'
+    template_name = 'blog/detailview.html'

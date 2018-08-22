@@ -1,6 +1,5 @@
 *.pyc
 migrations
 db.sqlite3
-*.pyc
-__pycache__
-advanceDjangoBlog/__pycache__/
+tags
+static/img/*

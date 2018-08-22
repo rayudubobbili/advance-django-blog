@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block head %}
+<title>welcome to {{post.title}}</title>
+<meta description="{{post.meta}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="text-center post_title">{{post.title}}</h1>
+            <h4 class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </h4>
+            <p class="text-center">Tagged under : {{post.tags.all|join:", "}}</p>
+
+            <p>{{post.body_html|safe}}</p>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+{% endblock %}
