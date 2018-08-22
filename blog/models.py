@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 class Tags(models.Model):
-    tag = models.CharField(max_length=100)
+    tag = models.SlugField(max_length=100)
     #TODO: make tags to links to search all posts that are tagged to that tag
 
     def __str__(self):
@@ -75,10 +75,10 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self):
+    def save(self, *args, **kwargs):
         self.body_html = markdown.markdown(self.body)
         super().save(*args, **kwargs)
 
     def get_absoulute_url(self):
-        return reverse('blog:detailview', kwargs = {'slug':self.slug},)
+        return reverse('blog:detailview', kwargs={'slug':self.slug})
 
