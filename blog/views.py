@@ -4,7 +4,7 @@ from .models import Post
 
 
 def homepage(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all()[:6]
     return render(request, 'blog/homepage.html', {'posts':posts})
 
 
