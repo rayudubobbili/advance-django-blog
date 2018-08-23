@@ -10,6 +10,15 @@
     font-size: 90px;
 }
 
-.post_title{
-    margin-top: 100px;
+.feature_image_container{
+    height: 300px:
+}
+
+.top-margin{
+    margin-top: 70px;
+}
+
+.sidebar{
+	height: 3000px;
+	background-color: lightgreen;
 }

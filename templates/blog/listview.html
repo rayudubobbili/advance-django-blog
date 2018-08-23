@@ -1,5 +1,17 @@
+{% extends 'base.html' %}
 
-{% for object in objects %}
-    <li><href = "/{{object.slug}}">{{object.title}}</a></li>
-{% endfor %}
+{% block head %}
+<title>Welcome to post pages</title>
+{% endblock %}
 
+
+{% block content %}
+<div class="container-fluid top-margin">
+  <ul>
+    {% for post in object_list %}
+    <li><a href="{% url 'blog:detailview' post.slug %}">{{post.slug}}</a></li>
+    <img src="{{post.feature_image}}">
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

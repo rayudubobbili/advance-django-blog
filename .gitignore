@@ -3,3 +3,4 @@ migrations
 db.sqlite3
 tags
 static/img/*
+advanceDjangoBlog/__pycache__/*

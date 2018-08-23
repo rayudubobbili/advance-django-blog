@@ -7,16 +7,24 @@
 {% endblock %}
 
 {% block content %}
+<div class="feature_image_container top-margin">
+    <img src="{{post.feature_image}}" class="feature_image alt="Post feature image" height="300px" width="100%" />
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
-            <h1 class="text-center post_title">{{post.title}}</h1>
-            <h4 class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </h4>
-            <p class="text-center">Tagged under : {{post.tags.all|join:", "}}</p>
+            <h1 class="text-center">{{post.title}}</h1>
+            {% if post.modified > post.published %}
+                <p class="text-center">Modified by <string>{{ post.author }}</strong> on {{post.modified|naturaltime}} </p>
+            {% else %}
+                <p class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </p>
+            {% endif %}
+            <p class="text-center ">Tagged under : {{post.tags.all|join:", "}}</p>
 
             <p>{{post.body_html|safe}}</p>
         </div>
         <div class="col-md-4">
+			<div class="sidebar top-margin"></div>
         </div>
     </div>
 </div>
