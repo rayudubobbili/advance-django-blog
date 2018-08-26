@@ -5,6 +5,7 @@ Blog written in django framework with advance features
 1. Blog
   * [ ] meta - for SEO
   * [ ] tags
+  * [ ] category
   * [ ] Author
   * [ ] Date of publish
   * [ ] Date of modified
@@ -55,7 +56,7 @@ Blog written in django framework with advance features
   * [ ] To-Do
   * [ ] Researching
   * [ ] Drafts
-8. Post writing
+9. Post writing
   * [ ] Markdown support
   * [ ] Check entire post for SEO
   * [ ] Post on social media
@@ -63,7 +64,7 @@ Blog written in django framework with advance features
   * [ ] Previews and post
   * [ ] Save as draft
   * [ ] Yoast SEO like checklist
-8. Followers
+10. Followers
   * [ ] Subscribers list
   * [ ] Send e-mails to subscribers
   * [ ] Add subscribers to list
