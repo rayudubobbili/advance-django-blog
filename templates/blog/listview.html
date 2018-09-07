@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container-fluid top-margin">
   <ul>
-    {% for post in object_list %}
+    {% for post in posts %}
     <li><a href="{% url 'blog:detailview' post.slug %}">{{post.slug}}</a></li>
     <img src="{{post.feature_image}}">
     {% endfor %}
