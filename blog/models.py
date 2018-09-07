@@ -51,20 +51,12 @@ class Likes(models.Model):
         verbose_name_plural = "Likes"
 
 
-class Category(models.Model):
-    category = models.SlugField(max_length=200)
-
-    def __str__(self):
-        return self.category
-
-
 class Post(models.Model):
     author = models.ForeignKey('auth.user', on_delete='CASCADE')
     title = models.CharField(max_length=200)
     meta = models.CharField(max_length=600)
     slug = models.SlugField(max_length=200)
     tags = models.ManyToManyField('Tags')
-    category = models.ManyToManyField('Category')
     body = models.TextField()
     body_html = models.TextField(editable=False)
     publish = models.BooleanField(default=False)
