@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+<div class="top-margin">
+{% block content %}
+{% for category in categories %}
+<li><a href="{% url 'blog:category-detailview' category.category %}">{{ category }}</a></li>
+{% endfor %}
+{% endblock %}
+</div>

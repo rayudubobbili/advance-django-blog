@@ -6,10 +6,12 @@ from django.urls import reverse
 
 class Tags(models.Model):
     tag = models.SlugField(max_length=100)
-    #TODO: make tags to links to search all posts that are tagged to that tag
 
     def __str__(self):
         return self.tag
+
+    def get_absoulute_url(self):
+        return reverse('blog:tag-detailview', kwargs={'slug':self.tag})
 
     class Meta:
         verbose_name = "Tag"
@@ -51,11 +53,22 @@ class Likes(models.Model):
         verbose_name_plural = "Likes"
 
 
+class Category(models.Model):
+    category = models.SlugField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.category
+
+    def get_absoulute_url(self):
+        return reverse('blog:category-detailview', kwargs={'slug':self.category})
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.user', on_delete='CASCADE')
     title = models.CharField(max_length=200)
     meta = models.CharField(max_length=600)
     slug = models.SlugField(max_length=200)
+    category = models.ForeignKey('Category', default="", to_field="category", on_delete='CASCADE')
     tags = models.ManyToManyField('Tags')
     body = models.TextField()
     body_html = models.TextField(editable=False)

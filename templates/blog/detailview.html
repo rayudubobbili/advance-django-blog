@@ -19,7 +19,11 @@
             {% else %}
                 <p class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </p>
             {% endif %}
-            <p class="text-center ">Tagged under : {{post.tags.all|join:", "}}</p>
+            Tagged under :
+            {% for tag in post.tags.all %}
+            <li style="list-style:none;display:inline-block;"><a href="{% url 'blog:tag-detailview' tag%}">{{ tag }}</a></li>
+            {% endfor %}
+            <p class="text-left">Catagory : <a href="{% url 'blog:category-detailview' post.category %}">{{post.category}}</a></p>
 
             <p>{{post.body_html|safe}}</p>
         </div>

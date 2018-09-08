@@ -1,0 +1,9 @@
+{% extends 'base.html'  %}
+
+<div class="top-margin">
+{% block content %}
+{% for tag in tags %}
+<li><a href="{% url 'blog:tag-detailview' tag.tag %}">{{ tag }}</a></li>
+{% endfor %}
+{% endblock %}
+</div>

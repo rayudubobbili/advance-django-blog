@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Categories</title>
+{%endblock %}
+
+<div class="top-margin">
+  {% block content %}
+  {% for post in category %}
+  <li><a href="{% url 'blog:detailview' post.slug %}">{{ post }}</a><li>
+  {% endfor %}
+  {% endblock %}
+
+</div>
