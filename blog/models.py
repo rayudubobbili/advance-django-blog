@@ -19,7 +19,10 @@ class Tags(models.Model):
 
 
 class Comments(models.Model):
-    comment = models.TextField(default="null")
+    name = models.CharField(max_length=100, default="")
+    email = models.EmailField(default="")
+    subject = models.CharField(max_length=300, default="")
+    comment = models.TextField(default="")
 
     #TODO: Create a function 'is_approved' to show comments if admin wants to unless delete comment
 
@@ -95,4 +98,3 @@ class Post(models.Model):
 
     def get_absoulute_url(self):
         return reverse('blog:detailview', kwargs={'slug':self.slug})
-

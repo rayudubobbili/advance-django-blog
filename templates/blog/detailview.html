@@ -24,7 +24,6 @@
             <li style="list-style:none;display:inline-block;"><a href="{% url 'blog:tag-detailview' tag%}">{{ tag }}</a></li>
             {% endfor %}
             <p class="text-left">Catagory : <a href="{% url 'blog:category-detailview' post.category %}">{{post.category}}</a></p>
-
             <p>{{post.body_html|safe}}</p>
         </div>
         <div class="col-md-4">

@@ -4,8 +4,8 @@ Blog written in django framework with advance features
 ### Expecting features
 1. Blog
   * [X] meta - for SEO
-  * [X ] tags
-  * [ ] category
+  * [X] tags
+  * [X] category
   * [X] Author
   * [X] Date of publish
   * [X] Date of modified
@@ -17,7 +17,7 @@ Blog written in django framework with advance features
   * [X] comments
   * [X] likes
   * [X] shares
-  * [ ] save as draft
+  * [X] save as draft
   * [ ] search posts
 2. SEO
   * [ ] Post SEO checking
