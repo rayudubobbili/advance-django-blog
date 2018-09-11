@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Categories</title>
+ <title>Categories</title>
 {%endblock %}
 
 <div class="top-margin">
@@ -10,5 +10,4 @@
   <li><a href="{% url 'blog:detailview' post.slug %}">{{ post }}</a><li>
   {% endfor %}
   {% endblock %}
-
 </div>

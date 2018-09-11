@@ -9,44 +9,44 @@
 
 {% block content %}
 <div class="feature_image_container top-margin">
-    <img src="{{post.feature_image}}" class="feature_image alt="Post feature image" height="300px" width="100%" />
+  <img src="{{post.feature_image}}" class="feature_image alt="Post feature image" height="300px" width="100%" />
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class="text-center">{{post.title}}</h1>
-            {% if post.modified > post.published %}
-                <p class="text-center">Modified by <string>{{ post.author }}</strong> on {{post.modified|naturaltime}} </p>
-            {% else %}
-                <p class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </p>
-            {% endif %}
-            Tagged under :
-            {% for tag in post.tags.all %}
-            <li style="list-style:none;display:inline-block;"><a href="{% url 'blog:tag-detailview' tag%}">{{ tag }}</a></li>
-            {% endfor %}
-            <p class="text-left">Catagory : <a href="{% url 'blog:category-detailview' post.category %}">{{post.category}}</a></p>
-            <p>{{post.body_html|safe}}</p>
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="text-center">{{post.title}}</h1>
+      {% if post.modified > post.published %}
+      <p class="text-center">Modified by <string>{{ post.author }}</strong> on {{post.modified|naturaltime}} </p>
+      {% else %}
+      <p class="text-center">Published by <string>{{ post.author }}</strong> on {{post.published|naturaltime}} </p>
+      {% endif %}
+      Tagged under :
+      {% for tag in post.tags.all %}
+      <li style="list-style:none;display:inline-block;"><a href="{% url 'blog:tag-detailview' tag%}">{{ tag }}</a></li>
+      {% endfor %}
+      <p class="text-left">Catagory : <a href="{% url 'blog:category-detailview' post.category %}">{{post.category}}</a></p>
+      <p>{{post.body_html|safe}}</p>
 
-            {% for comment in comments %}
-            <div class="card">
-                {% if comment.is_approved is True %}
-                    <p>{{ comment.name }}</p>
-                    <p>{{ comment.comment }}</p>
-                    <p>{{ comment.time|naturaltime }}</p>
-                    {% endif %}
-             </div>
-            {% endfor %}
-                <form method="post">
-                {% csrf_token %}
-                {% for field in form %}
-                {% render_field field class="form-control" placeholder=field.label %}
-                {% endfor %}
-                <button class="btn btn-success" type='submit'>Submit</button>
-            </form>
-        </div>
-        <div class="col-md-4">
-			<div class="sidebar top-margin"></div>
-        </div>
+      {% for comment in comments %}
+      <div class="card">
+        {% if comment.is_approved is True %}
+        <p>{{ comment.name }}</p>
+        <p>{{ comment.comment }}</p>
+        <p>{{ comment.time|naturaltime }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        {% render_field field class="form-control" placeholder=field.label %}
+        {% endfor %}
+        <button class="btn btn-success" type='submit'>Submit</button>
+      </form>
     </div>
+    <div class="col-md-4">
+      <div class="sidebar top-margin"></div>
+    </div>
+  </div>
 </div>
 {% endblock %}
