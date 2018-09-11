@@ -20,12 +20,12 @@ class ContactForm(forms.Form):
             widget=forms.Textarea(),
            help_text="write your message")
 
-    def clearn(self):
-        cleaned_date = super(ContactForm, self).clean()
-        name = cleaned_date.get('name')
-        email = cleaned_date.get('email')
-        subject = cleaned_date.get('subject')
-        message = cleaned_date.get('message')
+    def clear(self):
+        cleaned_data = super(ContactForm, self).clean()
+        name = cleaned_data.get('name')
+        email = cleaned_data.get('email')
+        subject = cleaned_data.get('subject')
+        message = cleaned_data.get('message')
         if not name and not email and not message:
             raise forms.ValidateionError("Need to write something!")
 
@@ -34,8 +34,13 @@ class CommentsForm(forms.ModelForm):
 
     class Meta:
         model = Comments
-        fields = ('name', 'email', 'subject', 'comment')
+        fields = ('name', 'email', 'comment')
 
+    def clear():
+        cleaned_data = super(CommentsForm, self).clean()
+        name = cleaned_data.get('name')
+        email = cleaned_data.get('email')
+        comment = cleaned_data.get('comment')
 
 
 class PostSearchForm(forms.Form):

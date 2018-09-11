@@ -21,13 +21,15 @@ class Tags(models.Model):
 class Comments(models.Model):
     name = models.CharField(max_length=100, default="")
     email = models.EmailField(default="")
-    subject = models.CharField(max_length=300, default="")
     comment = models.TextField(default="")
+    time = models.DateTimeField(auto_now=True)
+    is_approved = models.BooleanField(default=False)
+    post = models.ForeignKey('Post', to_field="slug", on_delete="SET_NULL", null=True)
 
-    #TODO: Create a function 'is_approved' to show comments if admin wants to unless delete comment
 
     def __str__(self):
         return self.comment
+
 
     class Meta:
         verbose_name = "Comment"
@@ -70,7 +72,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.user', on_delete='CASCADE')
     title = models.CharField(max_length=200)
     meta = models.CharField(max_length=600)
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
     category = models.ForeignKey('Category', default="", to_field="category", on_delete='CASCADE')
     tags = models.ManyToManyField('Tags')
     body = models.TextField()
@@ -79,7 +81,6 @@ class Post(models.Model):
     published = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     feature_image = models.ImageField(upload_to="static/img/")
-    comments = models.ManyToManyField('Comments', blank=True)
     views = models.ManyToManyField('Views', blank=True)
     likes = models.ManyToManyField('likes', blank=True)
 
