@@ -4,10 +4,30 @@
 
 {% block head %}
 <title>welcome to {{post.title}}</title>
+<link rel="canonical" href="www.localhost.com">
 <meta description="{{post.meta}}">
+<!-- Facebook share content -->
+<!-- <meta property="og:url"           contnet="https://www.localhost.com"> -->
+<meta property="og:type"          content="blog">
+<meta property="og:title"         contnet="{{ post.title }}">
+<meta property="og:description"   content="{{ post.meta }}">
+<meta property="og:image"         content="{{ post.feature_image }}">
+<!-- end facebook share content -->
 {% endblock %}
 
 {% block content %}
+<!-- TODO: change app id by admin menu -->
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=457566701405054&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK for JavaScript -->
+
 <div class="feature_image_container top-margin">
   <img src="{{post.feature_image}}" class="feature_image alt="Post feature image" height="300px" width="100%" />
 </div>
@@ -26,6 +46,9 @@
       {% endfor %}
       <p class="text-left">Catagory : <a href="{% url 'blog:category-detailview' post.category %}">{{post.category}}</a></p>
       <p>{{post.body_html|safe}}</p>
+
+       {% include 'includes/social_share.html' %}
+
 
       {% for comment in comments %}
       <div class="card">

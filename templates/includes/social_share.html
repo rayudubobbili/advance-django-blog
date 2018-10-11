@@ -1,0 +1,15 @@
+<!-- Facebook share button code -->
+<a href="{% url "social_sharing:facebook_share" post.slug %}" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.localhost.com/{{ post.slug }}/', 'Facebook share', 'height=600, width=800')" class="btn btn-primary">Share on Facebook</a>
+<!-- End Facebook share button code -->
+
+<!-- Google Plus share button code -->
+<a href="{% url "social_sharing:google_plus_share" post.slug %}" onclick="window.open('https://www.plus.google.com/share?url=https://www.localhost.com/{{ post.slug }}/', 'Google Plus share', 'height=600, width=800')" class="btn btn-danger">Google Plus</a>
+<!-- End Google Plus share button code -->
+
+<!-- twitter tweet button -->
+<a href="{% url "social_sharing:twitter_share" post.slug %}" onclick="window.open('https://twitter.com/intent/tweet?text=hello%20world%20learning%20{{ post.title }}%20from%20https://localhost.com/{{ post.slug }}/', 'twitter plus share', 'height=600, width=800')" class="btn btn-warning">twitter</a>
+<!-- End twitter tweet button -->
+
+<!-- twitter tweet button -->
+<a href="{% url "social_sharing:reddit_share" post.slug %}" onclick="window.open('https://reddit.com/submit?url=https://localhost.com/{{ post.slug }}/', 'reddit_share', 'height=600, width=800')" class="btn btn-primary">Reddit</a>
+<!-- End twitter tweet button -->

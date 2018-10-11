@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog',
+    'social_sharing',
     'markdown',
     'django.contrib.admin',
     'django.contrib.auth',
