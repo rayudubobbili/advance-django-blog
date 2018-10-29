@@ -29,7 +29,7 @@ Blog written in django framework with advance features
 3. Responsive Design
   * [ ] specific design for all design
 4. Social sharing
-  * [ ] share buttons on every blog
+  * [X] share buttons on every blog
   * [ ] post content on post writing place
   * [ ] list of shares for post
 5. Theme customisation
@@ -67,6 +67,6 @@ Blog written in django framework with advance features
   * [ ] Save as draft
   * [ ] Yoast SEO like checklist
 10. Followers
-  * [ ] Subscribers list
+  * [X] Subscribers list
   * [ ] Send e-mails to subscribers
-  * [ ] Add subscribers to list
+  * [X] Add subscribers to list
