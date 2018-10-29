@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block head %}
+<title>Subscribe</title>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    {% render_field field class="form-control" placeholder=field.label %}
+  {% endfor %}
+  <button class="btn btn-success" type="submit">Subscribe</button>
+</form>
+{% endblock %}
