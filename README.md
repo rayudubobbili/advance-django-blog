@@ -35,12 +35,11 @@ Blog written in django framework with advance features
 5. Theme customisation
   * [ ] select some major styles and implement
 6. Dashboard
-  * [ ] traffic
   * [ ] most traffic from
   * [ ] views divided by weeks, days, months, annual
   * [ ] current views
-  * [ ] views from
-  * [ ] posts and pages
+  * [ ] Popular posts
+  * [ ] All posts and pages
   * [ ] comments
   * [ ] Google adsense details
   * [ ] followers
